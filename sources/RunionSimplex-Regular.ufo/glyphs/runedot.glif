@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="runedot" format="2">
+  <advance width="460"/>
+  <unicode hex="16EB"/>
+  <outline>
+    <contour>
+      <point x="195" y="350" type="line"/>
+      <point x="265" y="350" type="line"/>
+      <point x="265" y="420" type="line"/>
+      <point x="195" y="420" type="line"/>
+    </contour>
+  </outline>
+</glyph>

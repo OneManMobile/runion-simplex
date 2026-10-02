@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="naudiz" format="2">
+  <advance width="460"/>
+  <unicode hex="16BE"/>
+  <outline>
+    <contour>
+      <point x="246" y="16" type="line"/>
+      <point x="246" y="736" type="line"/>
+      <point x="214" y="736" type="line"/>
+      <point x="214" y="16" type="line"/>
+    </contour>
+    <contour>
+      <point x="80" y="484" type="line"/>
+      <point x="360" y="244" type="line"/>
+      <point x="380" y="268" type="line"/>
+      <point x="100" y="508" type="line"/>
+    </contour>
+    <contour>
+      <point x="246" y="32" type="line"/>
+      <point x="214" y="32" type="line"/>
+      <point x="214" y="0" type="line"/>
+      <point x="246" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="214" y="752" type="line"/>
+      <point x="214" y="720" type="line"/>
+      <point x="246" y="720" type="line"/>
+      <point x="246" y="752" type="line"/>
+    </contour>
+    <contour>
+      <point x="74" y="489" type="line"/>
+      <point x="84" y="480" type="line"/>
+      <point x="106" y="480" type="line"/>
+      <point x="106" y="503" type="line"/>
+      <point x="96" y="512" type="line"/>
+      <point x="74" y="512" type="line"/>
+    </contour>
+    <contour>
+      <point x="386" y="263" type="line"/>
+      <point x="376" y="272" type="line"/>
+      <point x="354" y="272" type="line"/>
+      <point x="354" y="249" type="line"/>
+      <point x="364" y="240" type="line"/>
+      <point x="386" y="240" type="line"/>
+    </contour>
+  </outline>
+</glyph>

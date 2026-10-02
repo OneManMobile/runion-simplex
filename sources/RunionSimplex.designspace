@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="5.0">
+  <axes>
+    <axis tag="wght" name="Weight" minimum="300" maximum="700" default="400">
+      <labels>
+        <label uservalue="300" name="Light"/>
+        <label uservalue="400" name="Regular" elidable="true" linkeduservalue="700"/>
+        <label uservalue="500" name="Medium"/>
+        <label uservalue="600" name="SemiBold"/>
+        <label uservalue="700" name="Bold"/>
+      </labels>
+    </axis>
+  </axes>
+  <sources>
+    <source filename="RunionSimplex-Light.ufo" name="Light" familyname="Runion Simplex" stylename="Light">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+      </location>
+    </source>
+    <source filename="RunionSimplex-Regular.ufo" name="Regular" familyname="Runion Simplex" stylename="Regular">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+      </location>
+    </source>
+    <source filename="RunionSimplex-Bold.ufo" name="Bold" familyname="Runion Simplex" stylename="Bold">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+      </location>
+    </source>
+  </sources>
+  <instances>
+    <instance name="Light" familyname="Runion Simplex" stylename="Light" filename="instances/RunionSimplex-Light.ufo">
+      <location>
+        <dimension name="Weight" xvalue="300"/>
+      </location>
+    </instance>
+    <instance name="Regular" familyname="Runion Simplex" stylename="Regular" filename="instances/RunionSimplex-Regular.ufo">
+      <location>
+        <dimension name="Weight" xvalue="400"/>
+      </location>
+    </instance>
+    <instance name="Medium" familyname="Runion Simplex" stylename="Medium" filename="instances/RunionSimplex-Medium.ufo">
+      <location>
+        <dimension name="Weight" xvalue="500"/>
+      </location>
+    </instance>
+    <instance name="SemiBold" familyname="Runion Simplex" stylename="SemiBold" filename="instances/RunionSimplex-SemiBold.ufo">
+      <location>
+        <dimension name="Weight" xvalue="600"/>
+      </location>
+    </instance>
+    <instance name="Bold" familyname="Runion Simplex" stylename="Bold" filename="instances/RunionSimplex-Bold.ufo">
+      <location>
+        <dimension name="Weight" xvalue="700"/>
+      </location>
+    </instance>
+  </instances>
+</designspace>

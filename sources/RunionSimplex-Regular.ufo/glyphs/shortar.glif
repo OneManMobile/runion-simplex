@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="shortar" format="2">
+  <advance width="460"/>
+  <unicode hex="16C6"/>
+  <outline>
+    <contour>
+      <point x="255" y="25" type="line"/>
+      <point x="255" y="745" type="line"/>
+      <point x="205" y="745" type="line"/>
+      <point x="205" y="25" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="246" type="line"/>
+      <point x="246" y="366" type="line"/>
+      <point x="214" y="404" type="line"/>
+      <point x="74" y="284" type="line"/>
+    </contour>
+    <contour>
+      <point x="255" y="50" type="line"/>
+      <point x="205" y="50" type="line"/>
+      <point x="205" y="0" type="line"/>
+      <point x="255" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="205" y="770" type="line"/>
+      <point x="205" y="720" type="line"/>
+      <point x="255" y="720" type="line"/>
+      <point x="255" y="770" type="line"/>
+    </contour>
+    <contour>
+      <point x="99" y="240" type="line"/>
+      <point x="115" y="254" type="line"/>
+      <point x="115" y="290" type="line"/>
+      <point x="81" y="290" type="line"/>
+      <point x="65" y="276" type="line"/>
+      <point x="65" y="240" type="line"/>
+    </contour>
+  </outline>
+</glyph>

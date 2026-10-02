@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Runion Simplex</title>
+<style>
+  :root { --paper:#111312; --ink:#e4e6e1; --soft:#7f8781; --line:#2a2e2b; --accent:#6fd39a; --card:#171a18; --well:#0b0d0c; }
+  * { box-sizing: border-box; }
+  html { background:var(--paper); }
+  body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.5 ui-monospace, Menlo, monospace; }
+  main { max-width:1080px; margin:0 auto; padding:56px 16px 96px; }
+  h1 { font:400 clamp(44px, 9.5vw, 116px)/1.15 "Runion Simplex", ui-monospace, monospace; margin:0 0 16px; letter-spacing:0; }
+  h1 .cur { display:inline-block; width:.62em; height:.12em; margin-left:.08em; background:var(--accent); vertical-align:baseline; animation:blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+  @media (prefers-reduced-motion: reduce) { h1 .cur { animation:none; } }
+  h2 { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft); font-weight:400;
+       margin:72px 0 16px; padding-top:16px; border-top:1px solid var(--line); }
+  p { max-width:66ch; margin:0 0 12px; } .soft { color:var(--soft); }
+  .tagline { font-size:17px; max-width:60ch; }
+  .ramp { margin:28px 0 0; display:grid; gap:2px; }
+  .ramp div { display:flex; gap:20px; align-items:baseline; white-space:nowrap; overflow:hidden; }
+  .ramp b { width:7.5em; flex:none; font-weight:400; font-size:12px; color:var(--soft); }
+  .ramp span { font:clamp(18px, 3.4vw, 34px)/1.35 "Runion Simplex", ui-monospace, monospace; }
+
+  /* legibility strip */
+  .legible { background:var(--well); border:1px solid var(--line); border-radius:6px; padding:20px 22px; overflow-x:auto; }
+  .legible .row { display:grid; grid-template-columns:48px 1fr; gap:16px; align-items:baseline; padding:10px 0; border-top:1px solid var(--line); }
+  .legible .row:first-child { border-top:0; }
+  .legible .row > b { font-weight:400; font-size:12px; color:var(--soft); }
+  .legible .row div { font-family:"Runion Simplex", ui-monospace, monospace; font-weight:400; white-space:pre; line-height:1.45; }
+
+  /* type tester */
+  #tester { display:block; width:100%; padding:12px 14px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+            font:16px/1.5 ui-monospace, Menlo, monospace; outline:none; resize:vertical; border-radius:4px; }
+  #tester:focus { border-color:var(--accent); }
+  .simplex { font-family:"Runion Simplex", ui-monospace, monospace; }
+  #out { margin-top:12px; padding:24px 20px; min-height:1.7em; border:1px solid var(--line); background:var(--card); border-radius:4px;
+         font:400 48px/1.4 "Runion Simplex", ui-monospace, monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
+  #out .w { display:inline-block; white-space:nowrap; }
+  #out .cl { display:inline-block; text-align:center; vertical-align:top; }
+  #out .l { display:block; margin:6px 0 10px; color:var(--soft); white-space:pre; font:400 11px/1.2 ui-monospace, Menlo, monospace; font-feature-settings:normal; }
+  .show { font:400 44px/1.3 "Runion Simplex", ui-monospace, monospace; display:flex; flex-wrap:wrap; gap:8px; }
+  .show .cl { display:inline-block; text-align:center; vertical-align:top; min-width:56px; padding:10px 8px 0;
+              border:1px solid var(--line); background:var(--card); border-radius:4px; cursor:pointer; }
+  .show .cl:hover { border-color:var(--accent); }
+  .show .l { display:block; margin:4px 0 8px; color:var(--soft); white-space:pre; font:400 12px/1.2 ui-monospace, Menlo, monospace; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px 24px; align-items:center; margin:12px 0; color:var(--soft); font-size:13px; }
+  .bar input[type=range] { width:180px; accent-color:var(--accent); }
+  .bar input[type=checkbox] { accent-color:var(--accent); }
+  .bar label { display:flex; gap:8px; align-items:center; cursor:pointer; }
+
+  /* sketchpad */
+  .lab { display:grid; grid-template-columns:minmax(240px, 360px) 1fr; gap:32px; align-items:start; }
+  @media (max-width:640px) { .lab { grid-template-columns:1fr; } #out { font-size:32px; } }
+  #stage { width:100%; background:var(--card); border:1px solid var(--line); border-radius:4px; touch-action:manipulation; color:var(--ink); }
+  #stage .hit { fill:transparent; cursor:pointer; } #stage .hit:hover + circle { r:16; fill:var(--accent); }
+  #code { display:block; width:100%; padding:10px 12px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+          font:14px ui-monospace, Menlo, monospace; border-radius:4px; }
+  button { font:inherit; font-size:13px; padding:6px 12px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+           border-radius:4px; cursor:pointer; } button:hover { border-color:var(--accent); color:var(--accent); }
+  button[aria-pressed=true] { border-color:var(--accent); color:var(--accent); }
+  #picked { display:flex; align-items:flex-end; gap:20px; margin:0 0 8px; min-height:190px; }
+  #sym { font:400 150px/1.2 "Runion Simplex", ui-monospace, monospace; user-select:all; }
+  #ref { font:40px/1 system-ui, "Apple Symbols", "Noto Sans Runic", sans-serif; color:var(--soft); }
+  #pickinfo { font:13px ui-monospace, Menlo, monospace; color:var(--soft); }
+  #line { margin-top:8px; font:13px ui-monospace, Menlo, monospace; color:var(--soft); user-select:all; overflow-wrap:anywhere; }
+  .group { font-size:12px; color:var(--soft); margin:28px 0 10px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(84px, 1fr)); gap:8px; }
+  .cell { border:1px solid var(--line); background:var(--card); border-radius:4px; padding:10px 6px 6px; text-align:center; cursor:pointer; }
+  .cell:hover, .cell.on { border-color:var(--accent); } .cell svg { width:100%; height:auto; display:block; }
+  .cell b { display:block; font-weight:400; font-size:13px; margin-top:6px; } .cell i { display:block; font-style:normal; font-size:10px; color:var(--soft); }
+  footer { margin-top:72px; padding-top:16px; border-top:1px solid var(--line); color:var(--soft); font-size:12px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Runion Simplex<span class="cur" aria-hidden="true"></span></h1>
+    <p class="tagline">Runion Neo's dot system, made for terminals. Every glyph &mdash; Latin and runes alike &mdash; is straight lines between dots on a <span class="gridsize">3 × 7</span> grid; lowercase sits on a shorter lattice so text reads like code. One square pen per weight, from Light to Bold.</p>
+    <div class="ramp" id="ramp"></div>
+  </header>
+
+  <h2>On screen</h2>
+  <section id="monitor" class="monitor theme-green crt" aria-label="Terminal set in Runion Simplex">
+    <div class="case">
+      <div class="screen" id="screen" tabindex="0" aria-label="Terminal. Click and type; try help.">
+        <pre class="term" id="term"></pre>
+        <div class="fx" aria-hidden="true"></div>
+        <div class="fshint" id="fshint" aria-hidden="true">esc exit &nbsp; alt+t theme &nbsp; alt+= alt+- size &nbsp; alt+w weight &nbsp; alt+c crt &nbsp; alt+r replay</div>
+      </div>
+      <div class="chin"><span class="brand">RUNION</span><span class="model">SIMPLEX VT-3x7</span><span class="led" aria-hidden="true"></span></div>
+    </div>
+    <div class="neck" aria-hidden="true"></div>
+    <div class="base" aria-hidden="true"></div>
+  </section>
+  <div class="mctl">
+    <div class="bar">
+      <span class="themes" role="group" aria-label="phosphor">
+        <button data-theme="green">green</button><button data-theme="amber">amber</button><button data-theme="paper">paper white</button><button data-theme="dark">modern dark</button>
+      </span>
+      <label><input id="crt" type="checkbox" checked> CRT effects</label>
+    </div>
+    <div class="bar">
+      <label>size <input id="msize" type="range" min="12" max="28" value="16"> <span id="msizev">16 px</span></label>
+      <label>weight <input id="mweight" type="range" min="300" max="700" step="10" value="400"> <span id="mweightv">Regular</span></label>
+      <button id="replay">replay session</button><button id="full">fullscreen</button>
+    </div>
+    <p class="soft">Click the screen and type &mdash; <b>help</b> lists what the little shell knows. Or put your own text on it:</p>
+    <textarea id="mine" rows="3" spellcheck="false" autocomplete="off" placeholder="Your text appears on the screen as you type&hellip;"></textarea>
+  </div>
+
+  <h2>Legibility</h2>
+  <p class="soft">The usual suspects, in Regular, at the sizes a terminal actually runs at.</p>
+  <div class="legible" id="legible"></div>
+
+  <h2>Type</h2>
+  <textarea id="tester" rows="3" spellcheck="false" autocomplete="off" placeholder="Type anything here&hellip;">$ make test &amp;&amp; echo "ok"
+Il1| O0o rn m cl {}[]() -&gt; =&gt; != &lt;=
+The quick brown fox jumps over the lazy dog.</textarea>
+  <div id="out"></div>
+  <div class="bar">
+    <label>size <input id="size" type="range" min="12" max="160" value="48"> <span id="sizev">48 px</span></label>
+    <label>weight <input id="weight" type="range" min="300" max="700" step="10" value="400"> <span id="weightv">Regular</span></label>
+    <label><input id="sub" type="checkbox"> letters underneath</label>
+    <label><input id="runes" type="checkbox"> write in runes  (th ng aa &rarr; ᚦ ᛜ ᚨ̊)</label>
+    <label><input id="kylver" type="checkbox"> four-stroke ᛊ  (ss01)</label>
+  </div>
+
+  <h2>All characters</h2>
+  <p class="soft">Everything the font answers to, set in the font itself. The small label is what you type. Click one to open it on the grid below.</p>
+  <div id="showcase"></div>
+
+  <h2>The grid &mdash; click dots to draw</h2>
+  <div class="lab">
+    <svg id="stage"></svg>
+    <div>
+      <p>Pick any glyph below to load it, or draw your own: click a dot to start a line, keep clicking to continue it. Click the last dot again to end the stroke (that also makes a lone dot).</p>
+      <p class="soft">A point is written <b>xy</b> &mdash; column, then row. <b>06</b> is top-left, <b>20</b> bottom-right; <b>a</b> and <b>b</b> are the rows below the baseline, <b>7</b> and <b>8</b> the accent rows above. Lowercase is drawn on this same lattice and set shorter by the build; the dashed guides show baseline, x-height and cap height. Lines join any two points with a dash. That string is the entire definition of a glyph. <b>copy</b> gives the whole line for glyphs.txt: name, character, strokes.</p>
+      <div id="picked"><span id="sym"></span><span id="ref"></span><span id="pickinfo"></span></div>
+      <input id="code" spellcheck="false" placeholder="00-16-20 02-22 04-24">
+      <div id="line"></div>
+      <div class="bar">
+        <button id="undo">undo point</button><button id="clear">clear</button><button id="copy">copy</button>
+      </div>
+      <div class="bar">
+        <label>stroke <input id="pen" type="range" min="20" max="130" step="2"> <span id="penv"></span></label>
+        <button id="penlight">light</button><button id="penreg">regular</button><button id="penbold">bold</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>Glyphs</h2>
+  <div id="glyphs"></div>
+
+  <footer>Runion Simplex &middot; SIL Open Font License 1.1 &middot; derived from Runion Neo</footer>
+</main>
+<script>
+  // everything cache-busted, so a rebuild or an edit is never hidden by the browser cache
+  { const v = Date.now();
+    document.write('<link rel="stylesheet" href="specimen/monitor.css?v=' + v + '">');
+    for (const s of ["specimen/data.js", "specimen/app.js", "specimen/monitor.js"]) document.write('<script src="' + s + '?v=' + v + '"><\/script>'); }
+</script>
+</body>
+</html>

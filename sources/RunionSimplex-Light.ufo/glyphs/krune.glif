@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="krune" format="2">
+  <advance width="460"/>
+  <unicode hex="16F1"/>
+  <outline>
+    <contour>
+      <point x="106" y="16" type="line"/>
+      <point x="106" y="736" type="line"/>
+      <point x="74" y="736" type="line"/>
+      <point x="74" y="16" type="line"/>
+    </contour>
+    <contour>
+      <point x="215" y="370" type="line"/>
+      <point x="355" y="10" type="line"/>
+      <point x="385" y="22" type="line"/>
+      <point x="245" y="382" type="line"/>
+    </contour>
+    <contour>
+      <point x="100" y="244" type="line"/>
+      <point x="240" y="364" type="line"/>
+      <point x="220" y="388" type="line"/>
+      <point x="80" y="268" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="32" type="line"/>
+      <point x="74" y="32" type="line"/>
+      <point x="74" y="0" type="line"/>
+      <point x="106" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="74" y="752" type="line"/>
+      <point x="74" y="720" type="line"/>
+      <point x="106" y="720" type="line"/>
+      <point x="106" y="752" type="line"/>
+    </contour>
+    <contour>
+      <point x="236" y="360" type="line"/>
+      <point x="246" y="369" type="line"/>
+      <point x="246" y="379" type="line"/>
+      <point x="241" y="392" type="line"/>
+      <point x="224" y="392" type="line"/>
+      <point x="214" y="383" type="line"/>
+      <point x="214" y="373" type="line"/>
+      <point x="219" y="360" type="line"/>
+    </contour>
+    <contour>
+      <point x="386" y="19" type="line"/>
+      <point x="381" y="32" type="line"/>
+      <point x="354" y="32" type="line"/>
+      <point x="354" y="13" type="line"/>
+      <point x="359" y="0" type="line"/>
+      <point x="386" y="0" type="line"/>
+    </contour>
+  </outline>
+</glyph>

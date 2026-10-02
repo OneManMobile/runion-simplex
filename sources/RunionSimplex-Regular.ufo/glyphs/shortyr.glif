@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="shortyr" format="2">
+  <advance width="460"/>
+  <unicode hex="16E7"/>
+  <outline>
+    <contour>
+      <point x="255" y="25" type="line"/>
+      <point x="255" y="385" type="line"/>
+      <point x="205" y="385" type="line"/>
+      <point x="205" y="25" type="line"/>
+    </contour>
+    <contour>
+      <point x="255" y="50" type="line"/>
+      <point x="205" y="50" type="line"/>
+      <point x="205" y="0" type="line"/>
+      <point x="255" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="205" y="410" type="line"/>
+      <point x="205" y="360" type="line"/>
+      <point x="255" y="360" type="line"/>
+      <point x="255" y="410" type="line"/>
+    </contour>
+  </outline>
+</glyph>

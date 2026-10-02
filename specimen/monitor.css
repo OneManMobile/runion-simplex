@@ -1,0 +1,79 @@
+/* Runion Simplex — the monitor: a CSS case, a phosphor screen, a stand. */
+.monitor { --fs:16px; --wg:400; max-width:960px; margin:8px auto 0; position:relative; }
+
+/* phosphors: every token colour of the session is one of these variables */
+.theme-green { --bg:#04140a; --fg:#41f57f; --dim:#1f8f49; --hi:#c4ffd6; --glow:rgba(65,245,127,.55);
+  --u:var(--hi); --w:var(--fg); --k:var(--hi); --s:#8dffb1; --n:var(--hi); --c:var(--dim); --f:var(--hi); --h:var(--hi); --r:var(--hi); --d:var(--hi); --ok:var(--hi); --er:var(--hi); }
+.theme-amber { --bg:#150b00; --fg:#ffb22e; --dim:#a8650c; --hi:#ffe2a8; --glow:rgba(255,170,40,.55);
+  --u:var(--hi); --w:var(--fg); --k:var(--hi); --s:#ffcf7a; --n:var(--hi); --c:var(--dim); --f:var(--hi); --h:var(--hi); --r:var(--hi); --d:var(--hi); --ok:var(--hi); --er:var(--hi); }
+.theme-paper { --bg:#0d0f12; --fg:#dfe6ee; --dim:#7d8896; --hi:#ffffff; --glow:rgba(210,225,245,.45);
+  --u:var(--hi); --w:var(--fg); --k:var(--hi); --s:#c8d3df; --n:var(--hi); --c:var(--dim); --f:var(--hi); --h:var(--hi); --r:var(--hi); --d:var(--hi); --ok:var(--hi); --er:var(--hi); }
+.theme-dark  { --bg:#16181d; --fg:#d4d7dd; --dim:#6b7280; --hi:#ffffff; --glow:rgba(200,210,230,.25);
+  --u:#7ec699; --w:#6cb6ff; --k:#c792ea; --s:#c3e88d; --n:#f78c6c; --c:#6b7280; --f:#82aaff; --h:#e5c07b; --r:#ff9e64; --d:#6cb6ff; --ok:#7ec699; --er:#ff6b6b; }
+
+/* the case */
+.case { position:relative; padding:30px 30px 0; border-radius:24px;
+  background:linear-gradient(170deg, #34332f 0%, #262522 45%, #1d1c1a 100%);
+  box-shadow:0 40px 70px -20px rgba(0,0,0,.75), 0 2px 0 rgba(255,255,255,.04),
+             inset 0 1px 0 rgba(255,255,255,.09), inset 0 -3px 0 rgba(0,0,0,.45), inset 0 0 0 1px rgba(0,0,0,.4); }
+.screen { position:relative; aspect-ratio:16 / 10; overflow:hidden; background:var(--bg); border-radius:10px; outline:none; cursor:text;
+  box-shadow:0 0 0 2px #0a0a09, 0 0 0 9px #151413, 0 0 0 10px rgba(255,255,255,.05), inset 0 0 28px rgba(0,0,0,.6); }
+.screen:focus-visible { box-shadow:0 0 0 2px #0a0a09, 0 0 0 9px #151413, 0 0 0 10px var(--fg), inset 0 0 28px rgba(0,0,0,.6); }
+.chin { display:flex; align-items:center; gap:14px; padding:16px 6px 18px; color:#77746c;
+  font:400 11px/1 "Runion Simplex", ui-monospace, monospace; letter-spacing:.3em; }
+.chin .model { margin-left:auto; letter-spacing:.12em; color:#5d5a54; }
+.chin .led { width:7px; height:7px; border-radius:50%; background:#5dff8f; box-shadow:0 0 6px 1px rgba(93,255,143,.7); }
+.neck { width:150px; height:64px; margin:0 auto; clip-path:polygon(18% 0, 82% 0, 96% 100%, 4% 100%);
+  background:linear-gradient(90deg, #171615, #2d2c29 45%, #22211f 60%, #141312); }
+.base { width:380px; max-width:70%; height:20px; margin:0 auto; border-radius:10px 10px 30px 30px / 10px 10px 20px 20px;
+  background:linear-gradient(#2e2d2a, #1a1918); box-shadow:0 1px 0 rgba(255,255,255,.07) inset, 0 22px 30px -8px rgba(0,0,0,.7); }
+
+/* the terminal itself */
+.term { position:absolute; inset:0; margin:0; padding:3.2% 4%; overflow-y:auto; scrollbar-width:none;
+  font:400 var(--fs)/1.38 "Runion Simplex", ui-monospace, Menlo, monospace; font-variation-settings:"wght" var(--wg);
+  color:var(--fg); white-space:pre-wrap; overflow-wrap:anywhere; tab-size:4; }
+.term::-webkit-scrollbar { display:none; }
+.term .u { color:var(--u); } .term .w { color:var(--w); } .term .k { color:var(--k); } .term .s { color:var(--s); }
+.term .n { color:var(--n); } .term .c { color:var(--c); } .term .f { color:var(--f); } .term .h { color:var(--h); }
+.term .r { color:var(--r); } .term .d { color:var(--d); } .term .ok { color:var(--ok); } .term .er { color:var(--er); }
+.term .dim { color:var(--dim); } .term .hi { color:var(--hi); }
+.term .cursor { display:inline-block; width:.6em; height:1.1em; margin-bottom:-.2em; background:var(--fg); animation:mblink 1.06s steps(1) infinite; }
+.term.typing .cursor { animation:none; }
+@keyframes mblink { 50% { opacity:0; } }
+
+/* CRT: glow, scanlines, vignette and a little curvature */
+.crt .screen { border-radius:22px / 26px; }
+.crt .term { text-shadow:0 0 1px var(--glow), 0 0 6px var(--glow), 0 0 16px var(--glow); }
+.fx { position:absolute; inset:0; pointer-events:none; border-radius:inherit; }
+.crt .fx {
+  background:
+    radial-gradient(120% 90% at 30% 12%, rgba(255,255,255,.07), transparent 40%),          /* glass reflection */
+    radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.55) 100%),             /* vignette */
+    repeating-linear-gradient(to bottom, rgba(0,0,0,.28) 0 1px, transparent 1px 3px);       /* scanlines */
+  box-shadow:inset 0 0 60px rgba(0,0,0,.7), inset 0 0 6px rgba(0,0,0,.9); }
+.crt .screen::before { content:""; position:absolute; inset:0; pointer-events:none; z-index:1; border-radius:inherit;
+  background:radial-gradient(ellipse at center, var(--glow), transparent 70%); opacity:.12; mix-blend-mode:screen; }
+.crt .term { animation:flicker 6s infinite; }
+@keyframes flicker { 0%, 100% { opacity:1; } 48% { opacity:.985; } 50% { opacity:.96; } 52% { opacity:.99; } }
+@media (prefers-reduced-motion: reduce) { .crt .term { animation:none; } .term .cursor { animation:none; } }
+
+.fshint { display:none; position:absolute; right:2.5vw; top:2.5vh; z-index:3; padding:.5em 1em; border-radius:6px;
+  font:400 14px/1 ui-monospace, Menlo, monospace; color:#e4e6e1; background:rgba(0,0,0,.82); white-space:nowrap; opacity:0; transition:opacity .6s; }
+.monitor:fullscreen, .monitor.pseudo-full { max-width:none; width:100vw; height:100vh; margin:0; background:#000; }
+.monitor.pseudo-full { position:fixed; inset:0; z-index:1000; }
+.monitor:fullscreen .case, .monitor.pseudo-full .case { height:100%; padding:0; border-radius:0; background:#000; box-shadow:none; }
+.monitor:fullscreen .screen, .monitor.pseudo-full .screen { aspect-ratio:auto; height:100%; border-radius:0; box-shadow:none; }
+.monitor.crt:fullscreen .screen, .monitor.crt.pseudo-full .screen { border-radius:2.2vw / 3vw; }
+.monitor:fullscreen .chin, .monitor:fullscreen .neck, .monitor:fullscreen .base,
+.monitor.pseudo-full .chin, .monitor.pseudo-full .neck, .monitor.pseudo-full .base { display:none; }
+.monitor:fullscreen .term, .monitor.pseudo-full .term { font-size:max(calc(var(--fs) * 1.75), 2.4vh); padding:3vh 3.5vw; }
+.monitor:fullscreen .fshint, .monitor.pseudo-full .fshint { display:block; }
+.monitor .fshint.show { opacity:1; }
+
+/* controls under the monitor */
+.mctl { max-width:960px; margin:28px auto 0; }
+.themes { display:inline-flex; gap:6px; flex-wrap:wrap; }
+#mine { display:block; width:100%; padding:10px 12px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+  font:14px/1.5 ui-monospace, Menlo, monospace; outline:none; resize:vertical; border-radius:4px; }
+#mine:focus { border-color:var(--accent); }
+@media (max-width:640px) { .case { padding:14px 14px 0; border-radius:16px; } .screen { aspect-ratio:4 / 3; } }

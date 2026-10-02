@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="franksos" format="2">
+  <advance width="460"/>
+  <unicode hex="16F4"/>
+  <outline>
+    <contour>
+      <point x="115" y="385" type="line"/>
+      <point x="115" y="745" type="line"/>
+      <point x="65" y="745" type="line"/>
+      <point x="65" y="385" type="line"/>
+    </contour>
+    <contour>
+      <point x="395" y="25" type="line"/>
+      <point x="395" y="385" type="line"/>
+      <point x="345" y="385" type="line"/>
+      <point x="345" y="25" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="246" type="line"/>
+      <point x="386" y="486" type="line"/>
+      <point x="354" y="524" type="line"/>
+      <point x="74" y="284" type="line"/>
+    </contour>
+    <contour>
+      <point x="115" y="410" type="line"/>
+      <point x="65" y="410" type="line"/>
+      <point x="65" y="360" type="line"/>
+      <point x="115" y="360" type="line"/>
+    </contour>
+    <contour>
+      <point x="65" y="770" type="line"/>
+      <point x="65" y="720" type="line"/>
+      <point x="115" y="720" type="line"/>
+      <point x="115" y="770" type="line"/>
+    </contour>
+    <contour>
+      <point x="395" y="50" type="line"/>
+      <point x="345" y="50" type="line"/>
+      <point x="345" y="0" type="line"/>
+      <point x="395" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="345" y="410" type="line"/>
+      <point x="345" y="360" type="line"/>
+      <point x="395" y="360" type="line"/>
+      <point x="395" y="410" type="line"/>
+    </contour>
+    <contour>
+      <point x="99" y="240" type="line"/>
+      <point x="115" y="254" type="line"/>
+      <point x="115" y="290" type="line"/>
+      <point x="81" y="290" type="line"/>
+      <point x="65" y="276" type="line"/>
+      <point x="65" y="240" type="line"/>
+    </contour>
+    <contour>
+      <point x="361" y="530" type="line"/>
+      <point x="345" y="516" type="line"/>
+      <point x="345" y="480" type="line"/>
+      <point x="379" y="480" type="line"/>
+      <point x="395" y="494" type="line"/>
+      <point x="395" y="530" type="line"/>
+    </contour>
+  </outline>
+</glyph>

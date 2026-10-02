@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="kaun" format="2">
+  <advance width="460"/>
+  <unicode hex="16B4"/>
+  <outline>
+    <contour>
+      <point x="106" y="16" type="line"/>
+      <point x="106" y="736" type="line"/>
+      <point x="74" y="736" type="line"/>
+      <point x="74" y="16" type="line"/>
+    </contour>
+    <contour>
+      <point x="104" y="248" type="line"/>
+      <point x="384" y="728" type="line"/>
+      <point x="356" y="744" type="line"/>
+      <point x="76" y="264" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="32" type="line"/>
+      <point x="74" y="32" type="line"/>
+      <point x="74" y="0" type="line"/>
+      <point x="106" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="74" y="752" type="line"/>
+      <point x="74" y="720" type="line"/>
+      <point x="106" y="720" type="line"/>
+      <point x="106" y="752" type="line"/>
+    </contour>
+    <contour>
+      <point x="361" y="752" type="line"/>
+      <point x="354" y="740" type="line"/>
+      <point x="354" y="720" type="line"/>
+      <point x="379" y="720" type="line"/>
+      <point x="386" y="732" type="line"/>
+      <point x="386" y="752" type="line"/>
+    </contour>
+  </outline>
+</glyph>

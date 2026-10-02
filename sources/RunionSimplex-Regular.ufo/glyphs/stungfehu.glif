@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="stungfehu" format="2">
+  <advance width="460"/>
+  <unicode hex="16A1"/>
+  <outline>
+    <contour>
+      <point x="341" y="596" type="line"/>
+      <point x="399" y="596" type="line"/>
+      <point x="399" y="654" type="line"/>
+      <point x="341" y="654" type="line"/>
+    </contour>
+    <contour>
+      <point x="115" y="25" type="line"/>
+      <point x="115" y="745" type="line"/>
+      <point x="65" y="745" type="line"/>
+      <point x="65" y="25" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="486" type="line"/>
+      <point x="386" y="726" type="line"/>
+      <point x="354" y="764" type="line"/>
+      <point x="74" y="524" type="line"/>
+    </contour>
+    <contour>
+      <point x="106" y="246" type="line"/>
+      <point x="386" y="486" type="line"/>
+      <point x="354" y="524" type="line"/>
+      <point x="74" y="284" type="line"/>
+    </contour>
+    <contour>
+      <point x="115" y="50" type="line"/>
+      <point x="65" y="50" type="line"/>
+      <point x="65" y="0" type="line"/>
+      <point x="115" y="0" type="line"/>
+    </contour>
+    <contour>
+      <point x="65" y="770" type="line"/>
+      <point x="65" y="720" type="line"/>
+      <point x="115" y="720" type="line"/>
+      <point x="115" y="770" type="line"/>
+    </contour>
+    <contour>
+      <point x="361" y="770" type="line"/>
+      <point x="345" y="756" type="line"/>
+      <point x="345" y="720" type="line"/>
+      <point x="379" y="720" type="line"/>
+      <point x="395" y="734" type="line"/>
+      <point x="395" y="770" type="line"/>
+    </contour>
+    <contour>
+      <point x="361" y="530" type="line"/>
+      <point x="345" y="516" type="line"/>
+      <point x="345" y="480" type="line"/>
+      <point x="379" y="480" type="line"/>
+      <point x="395" y="494" type="line"/>
+      <point x="395" y="530" type="line"/>
+    </contour>
+  </outline>
+</glyph>

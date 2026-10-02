@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="breve" format="2">
+  <advance width="460"/>
+  <unicode hex="02D8"/>
+  <outline>
+    <contour>
+      <point x="115" y="865" type="line"/>
+      <point x="115" y="985" type="line"/>
+      <point x="65" y="985" type="line"/>
+      <point x="65" y="865" type="line"/>
+    </contour>
+    <contour>
+      <point x="395" y="865" type="line"/>
+      <point x="395" y="985" type="line"/>
+      <point x="345" y="985" type="line"/>
+      <point x="345" y="865" type="line"/>
+    </contour>
+    <contour>
+      <point x="90" y="840" type="line"/>
+      <point x="370" y="840" type="line"/>
+      <point x="370" y="890" type="line"/>
+      <point x="90" y="890" type="line"/>
+    </contour>
+    <contour>
+      <point x="65" y="1010" type="line"/>
+      <point x="65" y="960" type="line"/>
+      <point x="115" y="960" type="line"/>
+      <point x="115" y="1010" type="line"/>
+    </contour>
+    <contour>
+      <point x="115" y="890" type="line"/>
+      <point x="65" y="890" type="line"/>
+      <point x="65" y="840" type="line"/>
+      <point x="115" y="840" type="line"/>
+    </contour>
+    <contour>
+      <point x="345" y="840" type="line"/>
+      <point x="395" y="840" type="line"/>
+      <point x="395" y="890" type="line"/>
+      <point x="345" y="890" type="line"/>
+    </contour>
+    <contour>
+      <point x="345" y="1010" type="line"/>
+      <point x="345" y="960" type="line"/>
+      <point x="395" y="960" type="line"/>
+      <point x="395" y="1010" type="line"/>
+    </contour>
+  </outline>
+</glyph>
